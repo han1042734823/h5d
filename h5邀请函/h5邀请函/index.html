@@ -2,12 +2,12 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Swiper demo</title>
+  <title>BUY QUICKLY</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
 
   <!-- Link Swiper's CSS -->
   <link rel="stylesheet" href="./css/swiper.min.css">
-
+  <script src="./js/jquery-3.3.1.min.js"></script>
   <!-- Demo styles -->
   <style>
     html, body {
@@ -53,9 +53,61 @@
       align-items: center; */
     }
     .swiper-slide img{
+      opacity: 0;
+      transition:all 3s;
+    }
+    .swiper-slide .img-pul{
       width:100%;
       height:100%;
     }
+    .ani-slide img{/* 淡出 */
+      opacity: 1;
+    }
+    .swiper-wrapper .swiper-slide img.ani-left-in{/* 左划入 */
+      transform: translateX(0px);
+    }
+    .swiper-wrapper .swiper-slide img.ani-right-in{/* 右划入 */
+      transform: translateX(6px);
+    }
+
+    /* 第二页效果 start */
+    .swiper-slide:nth-child(2) img{
+      display: block;
+      margin: auto;
+    }
+    .swiper-slide:nth-child(2) .img4{
+      width:28%;
+      margin-top:90px;
+      transform: translateX(-300px);
+    }
+    .swiper-slide:nth-child(2) .img5{
+      width:27%;
+      margin-top:28px;
+      transform: translateX(300px);
+    }
+    .swiper-slide:nth-child(2) .img6{
+      width:50%;
+      margin-top:25px;
+      transform: translateX(6px);
+    }
+    /* 第二页效果 end */
+
+    /* 第三页效果 start */
+    .swiper-slide:nth-child(3) img{
+      display: block;
+      margin: auto;
+    }
+    .swiper-slide:nth-child(3) .img8{
+        width:70%;
+        margin-top:160px;
+        transform: translateX(-300px);
+    }
+    .swiper-slide:nth-child(3) .img9{
+        width:70%;
+        margin-top:60px;
+        transform: translateX(300px);
+    }
+    /* 第三页效果 end */
   </style>
 </head>
 <body>
@@ -64,16 +116,19 @@
     <div class="swiper-container">
       <div class="swiper-wrapper">
         <div class="swiper-slide">
-          <img src="./img/2.png" >
+          <img src="./img/2.png" class='img-pul'>
         </div>
         <div class="swiper-slide">
-          <img src="./img/3.png" >
+          <img src="./img/4.png" class='img4'>
+          <img src="./img/5.png" class='img5' >
+          <img src="./img/6.png" class='img6'>
         </div>
         <div class="swiper-slide">
-          <img src="./img/7.png" >
+          <img src="./img/8.png" class='img8'>
+          <img src="./img/9.png" class='img9'>
         </div>
         <div class="swiper-slide">
-          <img src="./img/10.png" >
+          <img src="./img/10.png" class='img-pul'>
         </div>
       </div>
       <!-- Add Pagination -->
@@ -86,12 +141,47 @@
 
   <!-- Initialize Swiper -->
   <script>
-    var swiper = new Swiper('.swiper-container', {
-      direction: 'vertical',
-      pagination: {
-        el: '.swiper-pagination',
-        clickable: true,
-      },
+    var swiper = new Swiper('.swiper-container',{
+          direction : 'vertical',
+          followFinger : false,
+          speed:800,
+          mousewheel: true,
+          // pagination : {
+          //   el:'.swiper-pagination',
+          // },
+          on:{
+            init:function(swiper){
+                  slide=this.slides.eq(0);
+                  slide.addClass('ani-slide');
+              },
+            transitionStart: function(){
+                for(i=0;i<this.slides.length;i++){
+                    slide=this.slides.eq(i);
+                    slide.removeClass('ani-slide');
+                    if(i==1){
+                      $('.img4').removeClass('ani-left-in');
+                      $('.img5').removeClass('ani-right-in');
+                    }
+                    if(i==2){
+                      $('.img9').removeClass('ani-left-in');
+                      $('.img8').removeClass('ani-right-in');
+                    }
+                }
+              },
+            transitionEnd: function(){
+              slide=this.slides.eq(this.activeIndex);
+              slide.addClass('ani-slide');
+              if(this.activeIndex==1){
+                $('.img4').addClass('ani-left-in');
+                $('.img5').addClass('ani-right-in');
+              }
+              if(this.activeIndex==2){
+                $('.img9').addClass('ani-left-in');
+                $('.img8').addClass('ani-right-in');
+              }
+
+            },
+          }
     });
   </script>
 </body>
