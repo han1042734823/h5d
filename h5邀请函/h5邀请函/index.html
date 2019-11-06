@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <title>BUY QUICKLY</title>
@@ -10,33 +11,38 @@
   <script src="./js/jquery-3.3.1.min.js"></script>
   <!-- Demo styles -->
   <style>
-    html, body {
+    html,
+    body {
       position: relative;
       height: 100%;
     }
-    .gif{
-      width:100%;
-      height:100%;
-      background:url('./img/2.gif') no-repeat;
+
+    .gif {
+      width: 100%;
+      height: 100%;
+      background: url('./img/2.gif') no-repeat;
       background-size: 100% 100%;
     }
+
     body {
       background: #eee;
       font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
       font-size: 14px;
-      color:#000;
+      color: #000;
       margin: 0;
       padding: 0;
-      background:url('./img/1.png') no-repeat;
+      background: url('./img/1.png') no-repeat;
       background-size: 100% 100%;
     }
+
     .swiper-container {
       width: 100%;
       height: 100%;
     }
+
     .swiper-slide {
-      width:100%;
-      height:100%;
+      width: 100%;
+      height: 100%;
 
       /* Center slide text vertically */
       /* display: -webkit-box;
@@ -52,76 +58,134 @@
       -webkit-align-items: center;
       align-items: center; */
     }
-    .swiper-slide img{
+
+    .swiper-slide img {
       opacity: 0;
-      transition:all 3s;
+      transition: all 1.5s;
     }
-    .swiper-slide .img-pul{
-      width:100%;
-      height:100%;
+
+    .swiper-slide .img-pul {
+      width: 100%;
+      height: 100%;
     }
-    .ani-slide img{/* 淡出 */
+
+    .ani-slide img {
+      /* 淡出 */
       opacity: 1;
     }
-    .swiper-wrapper .swiper-slide img.ani-left-in{/* 左划入 */
+
+    .swiper-slide .img2 {
+      transform: translateY(-20rem);
+    }
+
+    .swiper-slide .img2.ani-top-in {
+      transform: translateY(0);
+    }
+
+    .swiper-wrapper .swiper-slide img.ani-left-in {
+      /* 左划入 */
       transform: translateX(0px);
     }
-    .swiper-wrapper .swiper-slide img.ani-right-in{/* 右划入 */
+
+    .swiper-wrapper .swiper-slide img.ani-right-in {
+      /* 右划入 */
       transform: translateX(5px);
     }
 
+    .swiper-wrapper .swiper-slide img.ani-bottom-in {
+      transform: translate(8px, 0rem);
+    }
+
     /* 第二页效果 start */
-    .swiper-slide:nth-child(2) img{
+    .swiper-slide:nth-child(3) img {
       display: block;
       margin: auto;
     }
-    .swiper-slide:nth-child(2) .img4{
-      width:27%;
-      margin-top:2.3rem;
-      transform: translateX(-300px);
+
+    .swiper-slide:nth-child(3) .img4 {
+      width: 34%;
+      margin-top: 2.3rem;
+      /* transform: translateX(-15rem); */
+      opacity: 1;
     }
-    .swiper-slide:nth-child(2) .img5{
-      width:26%;
-      margin-top:0.8rem;
-      transform: translateX(300px);
+
+    .swiper-slide:nth-child(3) .img5 {
+      width: 34%;
+      margin-top: 0.8rem;
+      transform: translate(8px, 15rem);
     }
-    .swiper-slide:nth-child(2) .img6{
-      width:50%;
-      margin-top:0.8rem;
+
+    .swiper-slide:nth-child(2) .img6 {
+      width: 80%;
+      margin: auto;
+      display: block;
+      margin-top: 6.8rem;
       transform: translateX(6px);
     }
+
     /* 第二页效果 end */
 
     /* 第三页效果 start */
-    .swiper-slide:nth-child(3) img{
+    .swiper-slide:nth-child(4) img {
       display: block;
       margin: auto;
     }
-    .swiper-slide:nth-child(3) .img8{
-        width:70%;
-        margin-top:4rem;
-        transform: translateX(-300px);
+
+    .swiper-slide:nth-child(4) .img8 {
+      width: 80%;
+      margin-top: 3rem;
+      transform: translateX(-15rem);
     }
-    .swiper-slide:nth-child(3) .img9{
-        width:70%;
-        margin-top:1.5rem;
-        transform: translateX(300px);
+
+    .swiper-slide:nth-child(4) .img9 {
+      width: 80%;
+      margin-top: 2.5rem;
+      transform: translateX(15rem);
     }
+
     /* 第三页效果 end */
+
+    .audio {
+      position: fixed;
+      top: 0.6rem;
+      right: 0;
+      z-index: 11;
+    }
+    .audio-img{
+      width: 60%;
+    }
+    .running {
+
+      animation: rotaing 1.2s linear infinite;
+    }
+
+    @keyframes rotaing {
+      from {
+        transform: rotate(0deg)
+      }
+
+      to {
+        transform:rotate(1turn)
+      }
+
+    }
   </style>
 </head>
+
 <body>
   <!-- Swiper -->
   <div class='gif'>
     <div class="swiper-container">
       <div class="swiper-wrapper">
         <div class="swiper-slide">
-          <img src="./img/2.png" class='img-pul'>
+          <img src="./img/2.png" class='img-pul img2'>
+        </div>
+        <div class="swiper-slide">
+          <img src="./img/6.png" class='img6'>
         </div>
         <div class="swiper-slide">
           <img src="./img/4.png" class='img4'>
-          <img src="./img/5.png" class='img5' >
-          <img src="./img/6.png" class='img6'>
+          <img src="./img/5.png" class='img5'>
         </div>
         <div class="swiper-slide">
           <img src="./img/8.png" class='img8'>
@@ -135,62 +199,91 @@
       <!-- <div class="swiper-pagination"></div> -->
     </div>
   </div>
-
+  <div class='audio'>
+    <img class='audio-img' src="https://as.eqh5.com/h5_view_2/images/bgmBtn-fbd2dc.svg" alt="">
+    <audio src="./media/11.mp3" id="media" autoplay='autoplay' loop="loop" ></audio>
+  </div>
   <!-- Swiper JS -->
   <script src="./js/swiper.min.js"></script>
 
   <!-- Initialize Swiper -->
   <script>
-    var swiper = new Swiper('.swiper-container',{
-          direction : 'vertical',
-          followFinger : false,
-          speed:800,
-          mousewheel: true,
-          // pagination : {
-          //   el:'.swiper-pagination',
-          // },
-          on:{
-            init:function(swiper){
-                  slide=this.slides.eq(0);
-                  slide.addClass('ani-slide');
-              },
-            transitionStart: function(){
-                for(i=0;i<this.slides.length;i++){
-                    slide=this.slides.eq(i);
-                    slide.removeClass('ani-slide');
-                    if(i==1){
-                      $('.img4').removeClass('ani-left-in');
-                      $('.img5').removeClass('ani-right-in');
-                    }
-                    if(i==2){
-                      $('.img9').removeClass('ani-left-in');
-                      $('.img8').removeClass('ani-right-in');
-                    }
-                }
-              },
-            transitionEnd: function(){
-              slide=this.slides.eq(this.activeIndex);
-              slide.addClass('ani-slide');
-              if(this.activeIndex==1){
-                $('.img4').addClass('ani-left-in');
-                $('.img5').addClass('ani-right-in');
-              }
-              if(this.activeIndex==2){
-                $('.img9').addClass('ani-left-in');
-                $('.img8').addClass('ani-right-in');
-              }
+    var audio = $('#media')[0]; 
+    var swiper = new Swiper('.swiper-container', {
+      direction: 'vertical',
+      followFinger: false,
+      speed: 800,
+      mousewheel: true,
+      // pagination : {
+      //   el:'.swiper-pagination',
+      // },
+      on: {
+        init: function (swiper) {
+          slide = this.slides.eq(0);
+          slide.addClass('ani-slide');
+          $('.img2').addClass('ani-top-in');
+        },
+        transitionStart: function () {
+          for (i = 0; i < this.slides.length; i++) {
+            slide = this.slides.eq(i);
+            slide.removeClass('ani-slide');
+            if (i == 0) {
+              $('.img2').removeClass('ani-top-in');
+            }
+            if (i == 2) {
+              // $('.img4').removeClass('ani-left-in');
+              $('.img5').removeClass('ani-bottom-in');
 
-            },
+            }
+            if (i == 3) {
+              $('.img9').removeClass('ani-left-in');
+              $('.img8').removeClass('ani-right-in');
+            }
           }
-    });
+        },
+        transitionEnd: function () {
+          slide = this.slides.eq(this.activeIndex);
+          slide.addClass('ani-slide');
+          if (this.activeIndex == 0) {
+            $('.img2').addClass('ani-top-in');
+          }
+          if (this.activeIndex == 2) {
+            // $('.img4').addClass('ani-left-in');
+            $('.img5').addClass('ani-bottom-in');
+          }
+          if (this.activeIndex == 3) {
+            $('.img9').addClass('ani-left-in');
+            $('.img8').addClass('ani-right-in');
+          }
 
-      //移动端适配
-      (function change(){
-          var oFz = document.getElementsByTagName("html")[0];
-          var width = window.innerWidth;
-          oFz.style.fontSize = width/10 +"px";
-          window.onresize=function(){change();};
-      })();
+        },
+      }
+    });
+    
+  
+    function audioPlay(){
+      $(".audio-img").addClass("running")
+      audio.play()
+    }
+
+    
+    $(".audio").on("click",function(e){
+     var running= $(".audio-img").hasClass("running");
+      if(running){
+        $(".audio-img").removeClass("running");
+        audio.pause()
+      }else{
+        audioPlay()
+      }
+    });
+    //移动端适配
+    (function change() {
+      var oFz = document.getElementsByTagName("html")[0];
+      var width = window.innerWidth;
+      oFz.style.fontSize = width / 10 + "px";
+      window.onresize = function () { change(); };
+    })();
   </script>
 </body>
+
 </html>
